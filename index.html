@@ -76,10 +76,10 @@
             <div class="popup-head"><img src="icon.png" alt="" width="16" height="16">New task</div>
             <input id="task" required autocomplete="off" aria-label="Task name">
             <dl class="fields">
-              <div><dt>Assignee</dt><dd>Me</dd></div>
+              <div><dt>Assignee</dt><dd class="who"><span class="face">RK</span>Me</dd></div>
               <div><dt>Due date</dt><dd>Thursday</dd></div>
               <div><dt>Project</dt><dd>Client launch</dd></div>
-              <div><dt>Tags</dt><dd>Follow up</dd></div>
+              <div><dt>Tags</dt><dd class="tagged"><span class="pill">Follow up</span></dd></div>
             </dl>
             <div class="popup-foot">
               <p class="left" id="left">10 free tasks left</p>
@@ -125,11 +125,11 @@
       <h2 class="title">Everything a quick task needs</h2>
       <p class="sub">Finish the task here, so you don't have to open Asana to fix it later.</p>
       <div class="grid">
-        <div class="card"><h3>Selected text comes first</h3><p>The text you select becomes the task name. Longer text goes into the description.</p></div>
+        <div class="card"><h3>Selected text comes first</h3><p>Your selection becomes the task name. Long text uses its first sentence, and the full text goes in the description.</p></div>
         <div class="card"><h3>Project and section</h3><p>Pick where the task goes. Your last project stays selected for next time.</p></div>
-        <div class="card"><h3>Due date, tags, assignee</h3><p>Set them in the popup, in the same place you name the task.</p></div>
-        <div class="card"><h3>Page link included</h3><p>Each task keeps the link to its source. Clear it if you want a blank task.</p></div>
-        <div class="card"><h3>Your shortcut</h3><p>Change the shortcut in Chrome if your keyboard or another app already uses it.</p></div>
+        <div class="card"><h3>Due date, tags, assignee</h3><p>Set them in the popup. Search your people by name and see your tags in color.</p></div>
+        <div class="card"><h3>Page link, your way</h3><p>Each task keeps its source link. Turn this off, or start with a blank task, in settings.</p></div>
+        <div class="card"><h3>Right-click or shortcut</h3><p>Right-click text, a link, or an image and choose Add to Asana. Change the shortcut if you need to.</p></div>
         <div class="card"><h3>Drafts stay safe</h3><p>Click away by mistake, and your text is still there when you come back.</p></div>
         <div class="card"><h3>Opens at once</h3><p>Your projects load from your browser first, then update in the background.</p></div>
         <div class="card"><h3>Real Asana tasks</h3><p>Tasks go through Asana's public API into your workspace, like any task you add by hand.</p></div>
@@ -178,7 +178,11 @@
         </details>
         <details>
           <summary>What do I need to set it up?</summary>
-          <p>Chrome 116 or later and an Asana account. You create an Asana personal access token once and paste it into the settings page. The page shows each step.</p>
+          <p>Chrome 127 or later and an Asana account. You create an Asana personal access token once and paste it into the settings page. The page shows each step.</p>
+        </details>
+        <details>
+          <summary>What goes in the title and description?</summary>
+          <p>Selected text becomes the title. If it is long, the title is its first sentence or line, and the full text goes in the description with the page link. If nothing is selected, the title is the page title. You can edit everything before you save, or change this in settings.</p>
         </details>
         <details>
           <summary>Does it work on every page?</summary>
