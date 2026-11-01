@@ -9,77 +9,148 @@
   <link rel="stylesheet" href="site.css">
 </head>
 <body>
-  <header class="wrap top">
-    <a class="brand" href="index.html"><img src="icon.png" alt="">Quick Task for Asana</a>
-    <nav><a href="#pricing">Pricing</a></nav>
-  </header>
+  <div class="band">
+    <header class="wrap top">
+      <a class="brand" href="index.html"><img src="icon.png" alt="">Quick Task for Asana</a>
+      <nav><a href="#pricing">Pricing</a></nav>
+    </header>
+
+    <section class="wrap hero">
+      <h1><span>Read it. Select it.</span><span>It's in Asana.</span></h1>
+      <div class="intro">
+        <p>Quick Task is a Chrome extension. Select text on any page, and it becomes a task in your own Asana project, with the page link attached.</p>
+        <a class="cta" href="mailto:ravishxt@gmail.com?subject=Tell%20me%20when%20Quick%20Task%20launches">Email me at launch</a>
+        <p class="small">Free for 10 tasks a month. Independent product, not made by Asana, Inc.</p>
+      </div>
+    </section>
+  </div>
 
   <main>
-    <section class="wrap hero">
-      <h1>Turn selected text into an Asana task.</h1>
-      <p class="lead">Quick Task for Asana is a Chrome extension. Select text on any page and press one shortcut. The text and the page link go to Asana, and you stay on your page.</p>
-      <p class="soon">Coming soon to the Chrome Web Store</p>
+    <section class="wrap stage" aria-label="Interactive demo">
+      <div class="demo">
+        <div class="window">
+          <div class="browser-bar">
+            <div class="address">docs.example.com/client-call</div>
+            <img src="icon.png" alt="">
+          </div>
 
-      <figure class="demo" role="img" aria-label="An example page with one sentence selected. The extension popup shows that sentence as a new task in the Launch project.">
-        <div class="page">
-          <p class="subject">Launch notes</p>
-          <p>Design is final and the copy is ready for review.</p>
-          <p><mark>Send the pricing page to legal by Friday</mark> so we can keep the launch date.</p>
-          <p>Support docs follow next week.</p>
+          <article class="doc" id="doc">
+            <h2>Client call notes</h2>
+            <p>The team liked the new timeline. <span class="line">Send Maya the revised quote by Thursday.</span> She needs it before her board meeting.</p>
+            <p>The app screens still need work. <span class="line">Book a design review with the mobile team.</span></p>
+            <p><span class="line">Ask finance to confirm the new budget.</span> Everything else stays as planned.</p>
+            <div class="try">
+              <span id="hint">Select any text here, then press</span>
+              <button class="keys" id="keys" type="button" aria-label="Press the shortcut">
+                <kbd id="alt-key">Option</kbd><kbd>Shift</kbd><kbd>A</kbd>
+              </button>
+            </div>
+          </article>
+
+          <div class="popup" id="popup" hidden>
+            <form id="form">
+              <div class="popup-head"><img src="icon.png" alt="" width="16" height="16">New Asana task</div>
+              <input id="task" required autocomplete="off" aria-label="Task name">
+              <textarea id="notes" rows="1" readonly aria-label="Notes">docs.example.com/client-call</textarea>
+              <label>Project</label>
+              <div class="field">Client launch</div>
+              <button class="create" id="create">Create task</button>
+              <p class="left" id="left">10 free tasks left this month</p>
+            </form>
+            <p class="created" id="created" role="status" hidden>Task created</p>
+          </div>
         </div>
-        <div class="keys"><kbd>Option</kbd><kbd>Shift</kbd><kbd>A</kbd></div>
-        <div class="popup">
-          <b>Task</b>
-          <div>Send the pricing page to legal by Friday</div>
-          <b>Notes</b>
-          <div>example.com/launch-notes</div>
-          <b>Project</b>
-          <div>Launch</div>
-          <span>Create task</span>
-        </div>
-      </figure>
+
+        <aside class="window project">
+          <h2>Client launch</h2>
+          <p>Example project</p>
+          <ul id="tasks">
+            <li>Update the rollout plan</li>
+            <li>Review the homepage copy</li>
+            <li>Share launch dates with sales</li>
+          </ul>
+        </aside>
+      </div>
+      <p class="caption">Try it here. This demo runs on this page, and nothing goes to Asana.</p>
     </section>
 
-    <section class="section">
-      <div class="wrap">
-        <h2>How it works</h2>
-        <ol class="steps">
-          <li><b>Select text</b><span>Use any page in Chrome, such as an email or a document.</span></li>
-          <li><b>Press the shortcut</b><span>Option+Shift+A on Mac, or Alt+Shift+A on Windows.</span></li>
-          <li><b>Press Enter</b><span>The task goes to your Asana project with the page link.</span></li>
-        </ol>
+    <section class="wrap compare">
+      <h2 class="section-title">Eight steps become three.</h2>
+      <div class="ways">
+        <div>
+          <h3>Without Quick Task</h3>
+          <ol class="slow">
+            <li>Copy the text</li>
+            <li>Find your Asana tab</li>
+            <li>Open the right project</li>
+            <li>Add a task</li>
+            <li>Paste the text</li>
+            <li>Go back and copy the link</li>
+            <li>Paste the link into the task</li>
+            <li>Find your place again</li>
+          </ol>
+        </div>
+        <div>
+          <h3>With Quick Task</h3>
+          <ol class="fast">
+            <li><mark>Select the text</mark></li>
+            <li><mark>Press the shortcut</mark></li>
+            <li><mark>Press Enter</mark></li>
+          </ol>
+        </div>
       </div>
     </section>
 
-    <section class="section" id="pricing">
+    <section class="wrap details">
+      <dl class="facts">
+        <div><dt>Real Asana tasks</dt><dd>Tasks go through Asana's public API into your own workspace. There, they work like any task you add by hand.</dd></div>
+        <div><dt>Remembers your project</dt><dd>Pick a project once. It stays selected, and each task keeps the page link.</dd></div>
+        <div><dt>Stays in your browser</dt><dd>It reads a page only when you ask it to. It has no analytics and no developer server. <a href="privacy.html">Privacy policy</a>.</dd></div>
+      </dl>
+    </section>
+
+    <section class="pricing" id="pricing">
       <div class="wrap">
-        <h2>Pricing</h2>
+        <h2 class="section-title">Start free. Cancel anytime.</h2>
         <div class="plans">
-          <div class="plan">
+          <div class="plan plan-free">
             <h3>Free</h3>
             <p class="price">$0</p>
             <p>10 tasks a month. No payment details needed.</p>
           </div>
-          <div class="plan">
+          <div class="plan plan-paid">
             <h3>Unlimited</h3>
-            <p class="price">$9 <small>per month</small></p>
-            <p>Unlimited tasks. Billed monthly. Cancel anytime.</p>
+            <p class="price">$9<small> per month</small></p>
+            <p>Unlimited tasks. Billed monthly. 7-day refund on your first payment.</p>
+            <a class="cta" href="mailto:ravishxt@gmail.com?subject=Tell%20me%20when%20Quick%20Task%20launches">Email me at launch</a>
           </div>
         </div>
-        <p class="note">Prices are in US dollars and include tax. You can upgrade from inside the extension. <a href="refund.html">Refund and cancellation policy</a>.</p>
+        <p class="note">Coming soon to the Chrome Web Store. Prices are in US dollars and include tax. You can upgrade from inside the extension. <a href="refund.html">Refund and cancellation policy</a>.</p>
       </div>
     </section>
 
-    <section class="section">
-      <div class="wrap">
-        <h2>What you get</h2>
-        <dl class="facts">
-          <div><dt>Delivery</dt><dd>Install the extension from the Chrome Web Store. After you pay, Dodo Payments sends a license key to your email. Paste it into the extension settings to unlock unlimited tasks.</dd></div>
-          <div><dt>What you need</dt><dd>Chrome 116 or later, an Asana account, and an Asana personal access token. The settings page shows where to add your token.</dd></div>
-          <div><dt>Privacy</dt><dd>The extension reads a page only when you press the shortcut or click its icon. It has no analytics and no developer server. <a href="privacy.html">Privacy policy</a>.</dd></div>
-          <div><dt>Limit</dt><dd>Some apps, such as Google Docs, draw text in a way the extension cannot read. In these apps, the page title becomes the task name.</dd></div>
-        </dl>
-      </div>
+    <section class="wrap questions">
+      <h2 class="section-title">Questions</h2>
+      <details>
+        <summary>How do I get the extension after I pay?</summary>
+        <p>Install the extension from the Chrome Web Store first. After you pay, Dodo Payments sends a license key to your email. Paste it into the extension settings to unlock unlimited tasks.</p>
+      </details>
+      <details>
+        <summary>What do I need to use it?</summary>
+        <p>Chrome 116 or later, an Asana account, and an Asana personal access token. The settings page shows how to create and add your token.</p>
+      </details>
+      <details>
+        <summary>Does it work on every page?</summary>
+        <p>It works on most pages. Some apps, such as Google Docs, draw text in a way the extension cannot read. In these apps, the page title becomes the task name, and you can edit it before you save.</p>
+      </details>
+      <details>
+        <summary>Does anyone else see my tasks or my token?</summary>
+        <p>No. Your task text and token go straight from your browser to Asana. The developer never receives them.</p>
+      </details>
+      <details>
+        <summary>Who makes this?</summary>
+        <p>Ravish Kumar, an independent developer. This product is not made by or affiliated with Asana, Inc. Email <a href="mailto:ravishxt@gmail.com">ravishxt@gmail.com</a> with any question.</p>
+      </details>
     </section>
   </main>
 
@@ -95,5 +166,7 @@
       <p>Not made by or affiliated with Asana, Inc.</p>
     </div>
   </footer>
+
+  <script src="demo.js"></script>
 </body>
 </html>
