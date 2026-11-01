@@ -25,6 +25,8 @@ function selectNextLine() {
 }
 
 function openPopup() {
+  for (const key of $('keys').children) key.animate({ transform: ['translateY(2px)', 'translateY(0)'] }, { duration: 160, easing: 'ease-out' });
+  popup.classList.remove('leaving');
   const text = chosen ?? lines[0].textContent;
   task.value = text.slice(0, 120);
   form.hidden = false;
@@ -100,7 +102,10 @@ form.addEventListener('submit', (event) => {
   chosen = null;
   getSelection().removeAllRanges();
   selectNextLine();
-  setTimeout(closePopup, 900);
+  setTimeout(() => popup.classList.add('leaving'), 800);
+  setTimeout(closePopup, 920);
 });
 
 selectNextLine();
+
+$('tasks').addEventListener('click', (event) => event.target.closest('li')?.classList.toggle('done'));

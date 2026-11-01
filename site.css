@@ -282,6 +282,37 @@ body::before {
 
 @keyframes nudge { 0%, 70%, 100% { transform: translateY(0); } 80% { transform: translateY(-3px); } }
 
+/* Micro animations */
+:root { interpolate-size: allow-keywords; }
+.top nav a:not(.cta) { transition: color 0.14s var(--out); }
+.top nav a:not(.cta):hover { color: var(--coral-deep); }
+.cta { transition: transform 0.16s var(--out), background 0.16s var(--out), box-shadow 0.16s var(--out); }
+.cta:hover { transform: translateY(-1px); box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.25), 0 1px 2px rgb(120 30 25 / 0.35), 0 14px 26px -8px rgb(214 69 61 / 0.7); }
+.cta:active { transform: scale(0.97); }
+.ghost { transition: border-color 0.14s var(--out), background 0.14s var(--out); }
+.plan .ghost:hover { border-color: var(--muted); background: var(--tint); }
+.ico { transition: transform 0.24s var(--out); }
+.card:hover .ico { transform: rotate(-6deg) scale(1.08); }
+.way li { transition: transform 0.16s var(--out); }
+.way li:hover { transform: translateX(3px); }
+.badges .tick, .plan .tick { transition: transform 0.2s var(--out); }
+.badges li:hover .tick, .plan li:hover .tick { transform: scale(1.18); }
+.keys kbd { transition: transform 0.14s var(--out), border-bottom-width 0.14s var(--out); }
+.keys:hover kbd { transform: translateY(1px); }
+.popup.leaving { opacity: 0; transform: scale(0.97); transition: opacity 0.12s ease-out, transform 0.12s ease-out; }
+.created { animation: open 0.2s var(--out); }
+.project li { cursor: pointer; transition: color 0.16s var(--out); }
+.project li::before { transition: background 0.16s var(--out), border-color 0.16s var(--out), transform 0.2s var(--out); }
+.project li:hover::before { border-color: var(--ok); }
+.project li.done { color: var(--muted); text-decoration: line-through; }
+.project li.done::before { border-color: var(--ok); background: var(--ok); transform: scale(1.1); }
+.faq summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; list-style: none; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; flex: none; color: var(--muted); font-size: 1.4rem; font-weight: 400; line-height: 1; transition: transform 0.2s var(--out), color 0.14s var(--out); }
+.faq details[open] summary::after { color: var(--coral); transform: rotate(45deg); }
+.faq details::details-content { block-size: 0; overflow: hidden; transition: block-size 0.22s var(--out), content-visibility 0.22s allow-discrete; }
+.faq details[open]::details-content { block-size: auto; }
+
 /* Policy pages */
 .policy-head { padding-block: 56px 48px; background: var(--peach); }
 .policy-head h1 { max-width: 12em; margin: 0; font-size: clamp(2.4rem, 5.6vw, 3.75rem); font-weight: 800; line-height: 1.08; letter-spacing: -0.03em; }
