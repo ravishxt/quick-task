@@ -245,6 +245,43 @@ a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visibl
 .closing .title { margin-bottom: 26px; }
 .closing .fine { color: #b9babc; }
 
+/* Polish */
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: -1;
+  height: 760px;
+  background: radial-gradient(60% 55% at 50% 0%, #fde3dc 0%, rgb(253 227 220 / 0) 70%), radial-gradient(30% 30% at 88% 22%, #fbe8c9 0%, rgb(251 232 201 / 0) 70%), radial-gradient(30% 30% at 10% 28%, #efe3f8 0%, rgb(239 227 248 / 0) 70%);
+}
+.nav-bar { background: rgb(251 250 248 / 0.72); }
+.nudge kbd { animation: nudge 2.4s ease-in-out infinite; }
+.nudge kbd:nth-child(2) { animation-delay: 0.12s; }
+.nudge kbd:nth-child(3) { animation-delay: 0.24s; }
+.bit { position: fixed; z-index: 9; width: 8px; height: 8px; border-radius: 2px; pointer-events: none; }
+
+.card { transition: transform 0.2s var(--out), box-shadow 0.2s var(--out), border-color 0.2s var(--out); }
+.card:hover { transform: translateY(-3px); border-color: transparent; box-shadow: 0 0 0 1px var(--line), 0 18px 34px -22px rgb(30 31 33 / 0.4); }
+.ico { display: grid; place-items: center; width: 40px; height: 40px; margin-bottom: 14px; border-radius: 11px; }
+.ico svg { width: 21px; height: 21px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.ico.coral { background: #fde3dc; color: #c23c34; }
+.ico.blue { background: #e1ecfc; color: #2c64bd; }
+.ico.pink { background: #fbe1f0; color: #b2317d; }
+.ico.teal { background: #d9f3f1; color: #137f79; }
+.ico.purple { background: #ece3fa; color: #6d42b5; }
+.ico.amber { background: #fdefcf; color: #a66a05; }
+.ico.green { background: #dcf2e8; color: #1f7a5a; }
+
+.plan { transition: transform 0.2s var(--out); }
+.plan-paid { position: relative; }
+.plan-paid:hover { transform: translateY(-3px); }
+.badge { margin-left: 10px; padding: 3px 10px; border-radius: 99px; background: var(--peach); color: var(--coral-deep); font-size: 0.78rem; font-weight: 700; vertical-align: 2px; }
+.faq summary { transition: color 0.14s var(--out); }
+.faq summary:hover { color: var(--coral-deep); }
+.closing { background: radial-gradient(60% 120% at 50% 120%, #4a2320 0%, var(--ink) 70%); }
+
+@keyframes nudge { 0%, 70%, 100% { transform: translateY(0); } 80% { transform: translateY(-3px); } }
+
 /* Policy pages */
 .policy-head { padding-block: 56px 48px; background: var(--peach); }
 .policy-head h1 { max-width: 12em; margin: 0; font-size: clamp(2.4rem, 5.6vw, 3.75rem); font-weight: 800; line-height: 1.08; letter-spacing: -0.03em; }
@@ -276,5 +313,5 @@ a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visibl
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  *, *::before { animation: none !important; transition: none !important; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
 }

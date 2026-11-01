@@ -12,6 +12,15 @@
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <symbol id="tick" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="currentColor"/><path d="M5.5 10.5l3 3 6-7" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
     <symbol id="cross" viewBox="0 0 16 16"><path d="M3.5 3.5l9 9m0-9l-9 9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+    <symbol id="c-text" viewBox="0 0 24 24"><path d="M4 6h16M4 12h10M4 18h13"/></symbol>
+    <symbol id="c-folder" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2.500h8a2 2 0 0 1 2 2V18a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
+    <symbol id="c-tag" viewBox="0 0 24 24"><path d="M3.5 4.500v6.300c0 .5.2 1 .6 1.400l8.2 8.200a2 2 0 0 0 2.8 0l5.3-5.300a2 2 0 0 0 0-2.800l-8.2-8.200c-.4-.4-.9-.6-1.4-.6H4.500a1 1 0 0 0-1 1z"/><circle cx="8" cy="8" r="1.3"/></symbol>
+    <symbol id="c-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3.3-3.300A4 4 0 0 0 13.3 5L12 6.3"/><path d="M14 10a4 4 0 0 0-5.7 0L5 13.300A4 4 0 0 0 10.7 19L12 17.7"/></symbol>
+    <symbol id="c-pointer" viewBox="0 0 24 24"><path d="M5 4l5.5 15 2.5-6.500L19.5 10z"/></symbol>
+    <symbol id="c-save" viewBox="0 0 24 24"><path d="M6 3.500h12a1 1 0 0 1 1 1v16l-7-4-7 4v-16a1 1 0 0 1 1-1z"/></symbol>
+    <symbol id="c-bolt" viewBox="0 0 24 24"><path d="M13 3L5 13.500h6L10 21l8-10.500h-6z"/></symbol>
+    <symbol id="c-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.500l2.8 2.800L16 9.5"/></symbol>
+    <symbol id="c-lock" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8 10.500V8a4 4 0 0 1 8 0v2.5"/></symbol>
   </svg>
 
   <div class="nav-bar">
@@ -55,7 +64,7 @@
             <p><span class="line">Ask finance to confirm the new budget.</span> Everything else stays as planned.</p>
             <div class="try">
               <span id="hint">Select any text here, then press</span>
-              <button class="keys" id="keys" type="button" aria-label="Press the shortcut">
+              <button class="keys nudge" id="keys" type="button" aria-label="Press the shortcut">
                 <kbd id="alt-key">Option</kbd><kbd>Shift</kbd><kbd>A</kbd>
               </button>
             </div>
@@ -125,15 +134,15 @@
       <h2 class="title">Everything a quick task needs</h2>
       <p class="sub">Finish the task here, so you don't have to open Asana to fix it later.</p>
       <div class="grid">
-        <div class="card"><h3>Selected text comes first</h3><p>Your selection becomes the task name. Long text uses its first sentence, and the full text goes in the description.</p></div>
-        <div class="card"><h3>Project and section</h3><p>Pick where the task goes. Your last project stays selected for next time.</p></div>
-        <div class="card"><h3>Due date, tags, assignee</h3><p>Set them in the popup. Search your people by name and see your tags in color.</p></div>
-        <div class="card"><h3>Page link, your way</h3><p>Each task keeps its source link. Turn this off, or start with a blank task, in settings.</p></div>
-        <div class="card"><h3>Right-click or shortcut</h3><p>Right-click text, a link, or an image and choose Add to Asana. Change the shortcut if you need to.</p></div>
-        <div class="card"><h3>Drafts stay safe</h3><p>Click away by mistake, and your text is still there when you come back.</p></div>
-        <div class="card"><h3>Opens at once</h3><p>Your projects load from your browser first, then update in the background.</p></div>
-        <div class="card"><h3>Real Asana tasks</h3><p>Tasks go through Asana's public API into your workspace, like any task you add by hand.</p></div>
-        <div class="card"><h3>Asks for little</h3><p>It reads a page only when you press the shortcut. It can't see your browsing history. <a href="privacy.html">Privacy policy</a>.</p></div>
+        <div class="card"><span class="ico coral"><svg><use href="#c-text"/></svg></span><h3>Selected text comes first</h3><p>Your selection becomes the task name. Long text uses its first sentence, and the full text goes in the description.</p></div>
+        <div class="card"><span class="ico blue"><svg><use href="#c-folder"/></svg></span><h3>Project and section</h3><p>Pick where the task goes. Your last project stays selected for next time.</p></div>
+        <div class="card"><span class="ico pink"><svg><use href="#c-tag"/></svg></span><h3>Due date, tags, assignee</h3><p>Set them in the popup. Search your people by name and see your tags in color.</p></div>
+        <div class="card"><span class="ico teal"><svg><use href="#c-link"/></svg></span><h3>Page link, your way</h3><p>Each task keeps its source link. Turn this off, or start with a blank task, in settings.</p></div>
+        <div class="card"><span class="ico purple"><svg><use href="#c-pointer"/></svg></span><h3>Right-click or shortcut</h3><p>Right-click text, a link, or an image and choose Add to Asana. Change the shortcut if you need to.</p></div>
+        <div class="card"><span class="ico amber"><svg><use href="#c-save"/></svg></span><h3>Drafts stay safe</h3><p>Click away by mistake, and your text is still there when you come back.</p></div>
+        <div class="card"><span class="ico amber"><svg><use href="#c-bolt"/></svg></span><h3>Opens at once</h3><p>Your projects load from your browser first, then update in the background.</p></div>
+        <div class="card"><span class="ico green"><svg><use href="#c-check"/></svg></span><h3>Real Asana tasks</h3><p>Tasks go through Asana's public API into your workspace, like any task you add by hand.</p></div>
+        <div class="card"><span class="ico blue"><svg><use href="#c-lock"/></svg></span><h3>Asks for little</h3><p>It reads a page only when you press the shortcut. It can't see your browsing history. <a href="privacy.html">Privacy policy</a>.</p></div>
       </div>
     </section>
 
@@ -152,7 +161,7 @@
           <a class="ghost" href="mailto:ravishxt@gmail.com?subject=Tell%20me%20when%20Quick%20Task%20launches">Get launch email</a>
         </div>
         <div class="plan plan-paid">
-          <h3>Unlimited</h3>
+          <h3>Unlimited<span class="badge">Best for daily use</span></h3>
           <p class="price">$9<small> per month</small></p>
           <ul>
             <li><svg class="tick"><use href="#tick"/></svg>Unlimited tasks</li>
