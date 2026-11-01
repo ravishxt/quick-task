@@ -64,11 +64,14 @@ form.addEventListener('submit', (event) => {
   const item = document.createElement('li');
   item.className = 'new';
   item.textContent = task.value;
+  const due = document.createElement('small');
+  due.textContent = 'Due Thursday';
+  item.append(due);
   $('tasks').prepend(item);
 
   lines.find((line) => line.textContent === task.value)?.classList.add('saved');
   left = Math.max(0, left - 1);
-  $('left').textContent = `${left} free ${left === 1 ? 'task' : 'tasks'} left this month`;
+  $('left').textContent = `${left} free ${left === 1 ? 'task' : 'tasks'} left`;
 
   form.hidden = true;
   $('created').hidden = false;

@@ -4,36 +4,50 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Quick Task for Asana</title>
-  <meta name="description" content="A Chrome extension that turns selected text on any page into an Asana task with one shortcut. Free for 10 tasks a month, or $9/month for unlimited tasks.">
+  <meta name="description" content="A Chrome extension that turns selected text on any page into an Asana task with project, due date, tags, and assignee. Free for 10 tasks a month, or $9/month for unlimited tasks.">
   <link rel="icon" href="icon.png">
   <link rel="stylesheet" href="site.css">
 </head>
 <body>
-  <div class="band">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="tick" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="currentColor"/><path d="M5.5 10.5l3 3 6-7" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="cross" viewBox="0 0 16 16"><path d="M3.5 3.5l9 9m0-9l-9 9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+  </svg>
+
+  <div class="nav-bar">
     <header class="wrap top">
       <a class="brand" href="index.html"><img src="icon.png" alt="">Quick Task for Asana</a>
-      <nav><a href="#pricing">Pricing</a></nav>
+      <nav>
+        <a href="#pricing">Pricing</a>
+        <a href="#questions">FAQ</a>
+        <a class="cta cta-small" href="mailto:ravishxt@gmail.com?subject=Tell%20me%20when%20Quick%20Task%20launches">Get launch email</a>
+      </nav>
     </header>
-
-    <section class="wrap hero">
-      <h1><span>Read it. Select it.</span><span>It's in Asana.</span></h1>
-      <div class="intro">
-        <p>Quick Task is a Chrome extension. Select text on any page, and it becomes a task in your own Asana project, with the page link attached.</p>
-        <a class="cta" href="mailto:ravishxt@gmail.com?subject=Tell%20me%20when%20Quick%20Task%20launches">Email me at launch</a>
-        <p class="small">Free for 10 tasks a month. Independent product, not made by Asana, Inc.</p>
-      </div>
-    </section>
   </div>
 
   <main>
-    <section class="wrap stage" aria-label="Interactive demo">
-      <div class="demo">
-        <div class="window">
-          <div class="browser-bar">
-            <div class="address">docs.example.com/client-call</div>
-            <img src="icon.png" alt="">
-          </div>
+    <section class="wrap hero">
+      <h1>Turn anything you read into an Asana task <mark>in one shortcut</mark></h1>
+      <p class="lead">Select text on any page and press one shortcut. Pick the project, due date, tags, and assignee, then press Enter. You never leave the page.</p>
+      <a class="cta" href="mailto:ravishxt@gmail.com?subject=Tell%20me%20when%20Quick%20Task%20launches">Get launch email</a>
+      <p class="fine">Free for 10 tasks a month. No card needed.</p>
+      <ul class="badges">
+        <li><svg class="tick"><use href="#tick"/></svg>Works with your Asana account</li>
+        <li><svg class="tick"><use href="#tick"/></svg>No browsing history access</li>
+        <li><svg class="tick"><use href="#tick"/></svg>No tracking</li>
+      </ul>
+    </section>
 
+    <section class="wrap stage" aria-label="Interactive demo">
+      <p class="note">Try it, this demo is live</p>
+      <div class="window">
+        <div class="browser-bar">
+          <div class="dots"><i></i><i></i><i></i></div>
+          <div class="address">docs.example.com/client-call</div>
+          <img src="icon.png" alt="">
+        </div>
+
+        <div class="split">
           <article class="doc" id="doc">
             <h2>Client call notes</h2>
             <p>The team liked the new timeline. <span class="line">Send Maya the revised quote by Thursday.</span> She needs it before her board meeting.</p>
@@ -47,110 +61,146 @@
             </div>
           </article>
 
-          <div class="popup" id="popup" hidden>
-            <form id="form">
-              <div class="popup-head"><img src="icon.png" alt="" width="16" height="16">New Asana task</div>
-              <input id="task" required autocomplete="off" aria-label="Task name">
-              <textarea id="notes" rows="1" readonly aria-label="Notes">docs.example.com/client-call</textarea>
-              <label>Project</label>
-              <div class="field">Client launch</div>
+          <aside class="project">
+            <h2>Client launch</h2>
+            <p>Example project</p>
+            <ul id="tasks">
+              <li>Update the rollout plan</li>
+              <li>Review the homepage copy</li>
+            </ul>
+          </aside>
+        </div>
+
+        <div class="popup" id="popup" hidden>
+          <form id="form">
+            <div class="popup-head"><img src="icon.png" alt="" width="16" height="16">New task</div>
+            <input id="task" required autocomplete="off" aria-label="Task name">
+            <dl class="fields">
+              <div><dt>Assignee</dt><dd>Me</dd></div>
+              <div><dt>Due date</dt><dd>Thursday</dd></div>
+              <div><dt>Project</dt><dd>Client launch</dd></div>
+              <div><dt>Tags</dt><dd>Follow up</dd></div>
+            </dl>
+            <div class="popup-foot">
+              <p class="left" id="left">10 free tasks left</p>
               <button class="create" id="create">Create task</button>
-              <p class="left" id="left">10 free tasks left this month</p>
-            </form>
-            <p class="created" id="created" role="status" hidden>Task created</p>
-          </div>
+            </div>
+          </form>
+          <p class="created" id="created" role="status" hidden>Task created</p>
         </div>
-
-        <aside class="window project">
-          <h2>Client launch</h2>
-          <p>Example project</p>
-          <ul id="tasks">
-            <li>Update the rollout plan</li>
-            <li>Review the homepage copy</li>
-            <li>Share launch dates with sales</li>
-          </ul>
-        </aside>
       </div>
-      <p class="caption">Try it here. This demo runs on this page, and nothing goes to Asana.</p>
+      <p class="caption">This demo runs on this page. Nothing goes to Asana.</p>
     </section>
 
-    <section class="wrap compare">
-      <h2 class="section-title">Eight steps become three.</h2>
+    <section class="wrap block">
+      <h2 class="title">Stop losing tasks in open tabs</h2>
+      <p class="sub">Every to-do you find on a page costs you a trip to another tab.</p>
       <div class="ways">
-        <div>
-          <h3>Without Quick Task</h3>
-          <ol class="slow">
-            <li>Copy the text</li>
-            <li>Find your Asana tab</li>
-            <li>Open the right project</li>
-            <li>Add a task</li>
-            <li>Paste the text</li>
-            <li>Go back and copy the link</li>
-            <li>Paste the link into the task</li>
-            <li>Find your place again</li>
+        <div class="way way-slow">
+          <h3>The usual way</h3>
+          <ol>
+            <li><svg class="cross"><use href="#cross"/></svg>Copy the text</li>
+            <li><svg class="cross"><use href="#cross"/></svg>Find your Asana tab</li>
+            <li><svg class="cross"><use href="#cross"/></svg>Open the right project</li>
+            <li><svg class="cross"><use href="#cross"/></svg>Add a task and paste the text</li>
+            <li><svg class="cross"><use href="#cross"/></svg>Set the date and tags</li>
+            <li><svg class="cross"><use href="#cross"/></svg>Go back and copy the link</li>
+            <li><svg class="cross"><use href="#cross"/></svg>Paste the link into the task</li>
+            <li><svg class="cross"><use href="#cross"/></svg>Find your place again</li>
           </ol>
         </div>
-        <div>
+        <div class="way way-fast">
           <h3>With Quick Task</h3>
-          <ol class="fast">
-            <li><mark>Select the text</mark></li>
-            <li><mark>Press the shortcut</mark></li>
-            <li><mark>Press Enter</mark></li>
+          <ol>
+            <li><svg class="tick"><use href="#tick"/></svg>Select the text</li>
+            <li><svg class="tick"><use href="#tick"/></svg>Press the shortcut</li>
+            <li><svg class="tick"><use href="#tick"/></svg>Press Enter</li>
           </ol>
+          <p class="result">The task is in your project with the page link attached, and you are still on your page.</p>
         </div>
       </div>
     </section>
 
-    <section class="wrap details">
-      <dl class="facts">
-        <div><dt>Real Asana tasks</dt><dd>Tasks go through Asana's public API into your own workspace. There, they work like any task you add by hand.</dd></div>
-        <div><dt>Remembers your project</dt><dd>Pick a project once. It stays selected, and each task keeps the page link.</dd></div>
-        <div><dt>Stays in your browser</dt><dd>It reads a page only when you ask it to. It has no analytics and no developer server. <a href="privacy.html">Privacy policy</a>.</dd></div>
-      </dl>
+    <section class="wrap block">
+      <h2 class="title">Everything a quick task needs</h2>
+      <p class="sub">Finish the task here, so you don't have to open Asana to fix it later.</p>
+      <div class="grid">
+        <div class="card"><h3>Selected text comes first</h3><p>The text you select becomes the task name. Longer text goes into the description.</p></div>
+        <div class="card"><h3>Project and section</h3><p>Pick where the task goes. Your last project stays selected for next time.</p></div>
+        <div class="card"><h3>Due date, tags, assignee</h3><p>Set them in the popup, in the same place you name the task.</p></div>
+        <div class="card"><h3>Page link included</h3><p>Each task keeps the link to its source. Clear it if you want a blank task.</p></div>
+        <div class="card"><h3>Your shortcut</h3><p>Change the shortcut in Chrome if your keyboard or another app already uses it.</p></div>
+        <div class="card"><h3>Drafts stay safe</h3><p>Click away by mistake, and your text is still there when you come back.</p></div>
+        <div class="card"><h3>Opens at once</h3><p>Your projects load from your browser first, then update in the background.</p></div>
+        <div class="card"><h3>Real Asana tasks</h3><p>Tasks go through Asana's public API into your workspace, like any task you add by hand.</p></div>
+        <div class="card"><h3>Asks for little</h3><p>It reads a page only when you press the shortcut. It can't see your browsing history. <a href="privacy.html">Privacy policy</a>.</p></div>
+      </div>
     </section>
 
-    <section class="pricing" id="pricing">
+    <section class="wrap block" id="pricing">
+      <h2 class="title">Start free. Cancel anytime.</h2>
+      <p class="sub">Use every feature on the free plan. Upgrade when you need more tasks.</p>
+      <div class="plans">
+        <div class="plan">
+          <h3>Free</h3>
+          <p class="price">$0</p>
+          <ul>
+            <li><svg class="tick"><use href="#tick"/></svg>10 tasks a month</li>
+            <li><svg class="tick"><use href="#tick"/></svg>Every feature included</li>
+            <li><svg class="tick"><use href="#tick"/></svg>No payment details needed</li>
+          </ul>
+          <a class="ghost" href="mailto:ravishxt@gmail.com?subject=Tell%20me%20when%20Quick%20Task%20launches">Get launch email</a>
+        </div>
+        <div class="plan plan-paid">
+          <h3>Unlimited</h3>
+          <p class="price">$9<small> per month</small></p>
+          <ul>
+            <li><svg class="tick"><use href="#tick"/></svg>Unlimited tasks</li>
+            <li><svg class="tick"><use href="#tick"/></svg>Every feature included</li>
+            <li><svg class="tick"><use href="#tick"/></svg>7-day refund on your first payment</li>
+          </ul>
+          <a class="cta" href="mailto:ravishxt@gmail.com?subject=Tell%20me%20when%20Quick%20Task%20launches">Get launch email</a>
+        </div>
+      </div>
+      <p class="pricing-note">Coming soon to the Chrome Web Store. Billed monthly in US dollars, tax included. You upgrade from inside the extension. <a href="refund.html">Refund and cancellation policy</a>.</p>
+    </section>
+
+    <section class="wrap block" id="questions">
+      <h2 class="title">Questions</h2>
+      <div class="faq">
+        <details>
+          <summary>Is this made by Asana?</summary>
+          <p>No. Quick Task for Asana is an independent product by Ravish Kumar. It is not made by or affiliated with Asana, Inc. It connects to your Asana account through Asana's public API.</p>
+        </details>
+        <details>
+          <summary>How do I get the extension after I pay?</summary>
+          <p>Install the extension from the Chrome Web Store first. After you pay, Dodo Payments sends a license key to your email. Paste it into the extension settings to unlock unlimited tasks.</p>
+        </details>
+        <details>
+          <summary>What do I need to set it up?</summary>
+          <p>Chrome 116 or later and an Asana account. You create an Asana personal access token once and paste it into the settings page. The page shows each step.</p>
+        </details>
+        <details>
+          <summary>Does it work on every page?</summary>
+          <p>It works on most pages. Some apps, such as Google Docs, draw text in a way the extension cannot read. In these apps, the page title becomes the task name, and you can edit it before you save.</p>
+        </details>
+        <details>
+          <summary>Does anyone else see my tasks or my token?</summary>
+          <p>No. Your task details and token go straight from your browser to Asana. The developer never receives them.</p>
+        </details>
+        <details>
+          <summary>What if something breaks?</summary>
+          <p>Email <a href="mailto:ravishxt@gmail.com">ravishxt@gmail.com</a>. A real person replies within 2 business days.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="closing">
       <div class="wrap">
-        <h2 class="section-title">Start free. Cancel anytime.</h2>
-        <div class="plans">
-          <div class="plan plan-free">
-            <h3>Free</h3>
-            <p class="price">$0</p>
-            <p>10 tasks a month. No payment details needed.</p>
-          </div>
-          <div class="plan plan-paid">
-            <h3>Unlimited</h3>
-            <p class="price">$9<small> per month</small></p>
-            <p>Unlimited tasks. Billed monthly. 7-day refund on your first payment.</p>
-            <a class="cta" href="mailto:ravishxt@gmail.com?subject=Tell%20me%20when%20Quick%20Task%20launches">Email me at launch</a>
-          </div>
-        </div>
-        <p class="note">Coming soon to the Chrome Web Store. Prices are in US dollars and include tax. You can upgrade from inside the extension. <a href="refund.html">Refund and cancellation policy</a>.</p>
+        <h2 class="title">Your next task is on this page</h2>
+        <a class="cta" href="mailto:ravishxt@gmail.com?subject=Tell%20me%20when%20Quick%20Task%20launches">Get launch email</a>
+        <p class="fine">Free for 10 tasks a month. No card needed.</p>
       </div>
-    </section>
-
-    <section class="wrap questions">
-      <h2 class="section-title">Questions</h2>
-      <details>
-        <summary>How do I get the extension after I pay?</summary>
-        <p>Install the extension from the Chrome Web Store first. After you pay, Dodo Payments sends a license key to your email. Paste it into the extension settings to unlock unlimited tasks.</p>
-      </details>
-      <details>
-        <summary>What do I need to use it?</summary>
-        <p>Chrome 116 or later, an Asana account, and an Asana personal access token. The settings page shows how to create and add your token.</p>
-      </details>
-      <details>
-        <summary>Does it work on every page?</summary>
-        <p>It works on most pages. Some apps, such as Google Docs, draw text in a way the extension cannot read. In these apps, the page title becomes the task name, and you can edit it before you save.</p>
-      </details>
-      <details>
-        <summary>Does anyone else see my tasks or my token?</summary>
-        <p>No. Your task text and token go straight from your browser to Asana. The developer never receives them.</p>
-      </details>
-      <details>
-        <summary>Who makes this?</summary>
-        <p>Ravish Kumar, an independent developer. This product is not made by or affiliated with Asana, Inc. Email <a href="mailto:ravishxt@gmail.com">ravishxt@gmail.com</a> with any question.</p>
-      </details>
     </section>
   </main>
 
