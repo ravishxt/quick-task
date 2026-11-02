@@ -313,6 +313,16 @@ body::before {
 .faq details::details-content { block-size: 0; overflow: hidden; transition: block-size 0.22s var(--out), content-visibility 0.22s allow-discrete; }
 .faq details[open]::details-content { block-size: auto; }
 
+/* Thank you page */
+.key-box { margin-bottom: 28px; padding: 18px 20px; border: 2px solid var(--coral); border-radius: 14px; background: #ffffff; }
+.key-box[hidden] { display: none; }
+.key-box p { margin: 0 0 8px; font-weight: 700; }
+.key-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; }
+.key-row code { font-size: 1.05rem; overflow-wrap: anywhere; }
+.key-row .cta { border: 0; cursor: pointer; font-family: inherit; }
+.next-steps { margin: 0 0 24px; padding-left: 22px; }
+.next-steps li { margin-bottom: 10px; }
+
 /* Policy pages */
 .policy-head { padding-block: 56px 48px; background: var(--peach); }
 .policy-head h1 { max-width: 12em; margin: 0; font-size: clamp(2.4rem, 5.6vw, 3.75rem); font-weight: 800; line-height: 1.08; letter-spacing: -0.03em; }
