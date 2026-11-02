@@ -231,6 +231,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visibl
 .plan li .tick { margin-top: 4px; }
 .plan .cta { text-align: center; }
 .plan .ghost { display: block; padding: 15px; border: 1px solid var(--line); border-radius: 12px; color: var(--ink); font-size: 1.05rem; font-weight: 700; text-align: center; text-decoration: none; }
+.plan .soon { color: var(--muted); font-weight: 600; cursor: default; }
 .pricing-note { max-width: 40em; margin: 24px auto 0; color: var(--muted); font-size: 0.95rem; text-align: center; }
 
 /* Questions */
