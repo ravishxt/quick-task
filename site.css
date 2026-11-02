@@ -28,6 +28,7 @@
 }
 
 * { box-sizing: border-box; }
+.sprite { position: absolute; }
 
 html { scroll-behavior: smooth; scroll-padding-top: 72px; }
 
