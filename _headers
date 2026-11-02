@@ -1,0 +1,14 @@
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: DENY
+
+/thanks
+  ! Referrer-Policy
+  Referrer-Policy: no-referrer
+  Cache-Control: no-store
+
+/thanks.html
+  ! Referrer-Policy
+  Referrer-Policy: no-referrer
+  Cache-Control: no-store
