@@ -2,15 +2,18 @@
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   X-Frame-Options: DENY
+  Cache-Control: public, max-age=300, no-transform
   Strict-Transport-Security: max-age=31536000
   Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'none'; frame-ancestors 'none'; base-uri 'none'; form-action 'none'
 
 /thanks
   ! Referrer-Policy
   Referrer-Policy: no-referrer
-  Cache-Control: no-store
+  ! Cache-Control
+  Cache-Control: no-store, no-transform
 
 /thanks.html
   ! Referrer-Policy
   Referrer-Policy: no-referrer
-  Cache-Control: no-store
+  ! Cache-Control
+  Cache-Control: no-store, no-transform
