@@ -322,6 +322,9 @@ body::before {
 .key-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; }
 .key-row code { font-size: 1.05rem; overflow-wrap: anywhere; }
 .key-row .cta { border: 0; cursor: pointer; font-family: inherit; }
+.auto-status { margin: 0 0 20px; padding: 14px 18px; border-radius: 12px; background: var(--tint); font-weight: 600; }
+.auto-status[hidden], .next-steps[hidden] { display: none; }
+.auto-status.done { background: #e3f4ec; color: #18533f; }
 .next-steps { margin: 0 0 24px; padding-left: 22px; }
 .next-steps li { margin-bottom: 10px; }
 
